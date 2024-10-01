@@ -26,6 +26,16 @@ pipeline {
                 }
             }
         }
+        stage('Stop and Remove Docker Container'){
+            steps{
+                script{
+                    bat '''
+                    docker stop flask-api || exit 0
+                    docker rm flask-api || exit 0
+                    '''
+                }
+            }
+        }
     }
 
     post {
