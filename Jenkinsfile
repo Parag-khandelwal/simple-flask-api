@@ -19,8 +19,6 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    bat 'docker stop flask-api || true'
-                    bat 'docker rm flask-api || true'
                     
                     bat 'docker run -d -p 5000:5000 --name flask-api flask-api'
                 }
